@@ -1,6 +1,8 @@
+import {City} from '@app/models/city.model'
+
 export interface Trip {
-  origin: string;
-  destinations: string[];
+  origin: City;
+  destinations: City[];
   isRoundTrip: boolean;
 }
 

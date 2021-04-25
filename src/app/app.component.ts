@@ -10,7 +10,6 @@ export class AppComponent {
   public view = 'trip';
 
   public changeView(view){
-    console.log(view);
-    this.view = 'map';
+    this.view = view;
   }
 }

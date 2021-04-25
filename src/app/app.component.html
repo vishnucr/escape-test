@@ -8,7 +8,7 @@
     <app-trip-planner *ngIf="view === 'trip'" (_viewMap)="changeView($event)"></app-trip-planner>
 
     <!-- MAP VIEW -->
-    <app-map-view *ngIf="view === 'map'"></app-map-view>
-    
+    <app-map-view *ngIf="view === 'map'" (_viewTrip)="changeView($event)"></app-map-view>
+
   </main>
 </section>
