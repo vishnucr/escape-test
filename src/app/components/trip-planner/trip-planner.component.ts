@@ -47,24 +47,25 @@ export class TripPlannerComponent implements OnInit {
   }
 
   public tripHandler(action, payload = null) {
+    debugger;
     switch (action) {
       case 'START_TRIP':
         this.START_TRIP = true;
         break;
       case 'ORIGIN_SELECTED':
         this.ORIGIN_SELECTED = true;
-        this._store.setOrigin(payload);
+        this._store.setOrigin(payload.value);
         break;
       case 'DESTINATION_SELECTED':
         this.DESTINATION_SELECTED = true;
-        this._store.setDestination(payload);
+        this._store.setDestination(payload.value);
         break;
       case 'DESTINATION_2':
         this.DESTINATION_2 = true;
         break;
         case 'TRIP_COMPLETED':
           this.TRIP_COMPLETED = true;
-          this._store.setDestination(payload);
+          this._store.setDestination(payload.value);
         break;
       case 'ROUND_TRIP':
         this.ROUND_TRIP = true;
