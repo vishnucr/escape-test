@@ -47,7 +47,6 @@ export class TripPlannerComponent implements OnInit {
   }
 
   public tripHandler(action, payload = null) {
-    debugger;
     switch (action) {
       case 'START_TRIP':
         this.START_TRIP = true;
