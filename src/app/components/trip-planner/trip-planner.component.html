@@ -1,0 +1,58 @@
+<section class="section">
+  <div class="container">
+    <ul>
+      <li *ngIf="!START_TRIP">
+        <button class="button is-primary" (click)="tripHandler('START_TRIP')">
+          Start Trip
+        </button>
+      </li>
+      <li *ngIf="START_TRIP">
+        <h2 class="is-size-4">Origin</h2>
+        <ngx-select-dropdown
+          *ngIf="cities.length > 0"
+          (change)="selectionHandler($event, 'ORIGIN_SELECTED')"
+          [(ngModel)]="origin"
+          [config]="config"
+          [options]="cities"
+        ></ngx-select-dropdown>
+      </li>
+      <li *ngIf="ORIGIN_SELECTED">
+        <h2 class="is-size-4">Destination</h2>
+        <ngx-select-dropdown
+          *ngIf="cities.length > 0"
+          (change)="selectionHandler($event, 'DESTINATION_SELECTED')"
+          [(ngModel)]="destination"
+          [config]="config"
+          [options]="cities"
+        ></ngx-select-dropdown>
+      </li>
+      <li *ngIf="DESTINATION_SELECTED && !DESTINATION_2 && !TRIP_COMPLETED">
+        <button class="button is-info" (click)="tripHandler('DESTINATION_2')">
+          Add Second Destination
+        </button>
+        <button
+          class="button is-danger"
+          (click)="selectionHandler(null, 'TRIP_COMPLETED', 'ROUND_TRIP')"
+        >
+          Complete Trip
+        </button>
+      </li>
+      <li *ngIf="DESTINATION_2">
+        <h2 class="is-size-4">Second Destination</h2>
+        <ngx-select-dropdown
+          *ngIf="cities.length > 0"
+          (change)="selectionHandler($event, 'TRIP_COMPLETED')"
+          [(ngModel)]="destination_2"
+          [config]="config"
+          [options]="cities"
+        ></ngx-select-dropdown>
+      </li>
+      <li *ngIf="TRIP_COMPLETED">
+        <button class="button is-success" (click)="viewMap()">View Map</button>
+        <button class="button is-success" (click)="resetTrip()">
+          Reset Trip
+        </button>
+      </li>
+    </ul>
+  </div>
+</section>

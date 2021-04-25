@@ -1,0 +1,14 @@
+<section class="section">
+  <div class="container">
+    <h2 class="title has-text-centered">Escape</h2>
+    <h4 class="subtitle has-text-centered">Escape from the noise</h4>
+  </div>
+  <main>
+    <!-- TRIP PLANNER -->
+    <app-trip-planner *ngIf="view === 'trip'" (_viewMap)="changeView($event)"></app-trip-planner>
+
+    <!-- MAP VIEW -->
+    <app-map-view *ngIf="view === 'map'"></app-map-view>
+    
+  </main>
+</section>
